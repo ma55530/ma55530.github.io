@@ -1,0 +1,80 @@
+---
+title: "Curriculum Vitae"
+body-classes: home-artwork
+include-in-header:
+  - files/font-preload.html
+  - files/art-preload.html
+format:
+  html:
+    format-links: false
+---
+
+[[Download PDF](files/Matija-Akrap-CV.pdf)]{.cv-pdf}
+
+[Email](mailto:matija.akrap009@gmail.com) · Leuven, Belgium · [GitHub](https://github.com/ma55530) · [LinkedIn](https://www.linkedin.com/in/matija-akrap-0837ab176/)
+
+## Education
+
+**KU Leuven** — Leuven, Belgium  
+Exchange student, MSc year, Faculty of Engineering Science · *Sep 2026 – Sep 2027*
+
+- Coursework: Machine Learning, NLP, Computer Vision, Reinforcement Learning, Bio-informatics, Multivariate Statistics, Uncertainty in AI etc.
+
+**University of Zagreb** — Zagreb, Croatia  
+MSc in Data Science, Faculty of Electrical Engineering and Computing (FER) · *Oct 2026 – Jul 2028 (expected)*  
+BSc in Computing · *Oct 2023 – Jul 2026*
+
+- Thesis: *Characterizing Research Paper Promotion on Social Media* (supervisor: Prof. Jan Šnajder).
+
+## Research interests
+
+Neurosymbolic AI, reasoning and evaluation of LLMs, reinforcement learning, interpretability & alignment.
+
+## Publications
+
+**M. Akrap**, A. Bilić, R. Šimpraga, F. Račić, L. Čuturilo. FER at SemEval-2026 Task 6: Analysis of Different Approaches to Unmasking Political Question Evasions. *Proceedings of the 20th International Workshop on Semantic Evaluation (SemEval-2026), co-located with ACL 2026*, pages 30–36. [Paper](https://aclanthology.org/2026.semeval-1.5/) · [GitHub](https://github.com/ma55530/FER-SemEval2026-T6)
+
+## Research
+
+**Detecting Evasive Answers in Political Interviews** · *Oct 2025 – Jun 2026*  
+SemEval-2026 Task 6, research project in the Project R course, FER · Zagreb, Croatia
+
+- Compared flat, hierarchical and multitask RoBERTa models, with the hierarchical model performing best.
+- Found that multitask models broke the label hierarchy, and enforcing it at inference raised F1.
+
+## Projects
+
+**Personal Language Model** · PyTorch, QLoRA, mlx-lm · [GitHub](https://github.com/ma55530/LLM-from-scratch)
+
+- Built a training set from my own WhatsApp and Instagram messages.
+- Pre-trained a GPT-style model from scratch, then QLoRA fine-tuned Ministral-8B to write in my style.
+
+**Dobby: Movie & TV Recommendation Platform** · PyTorch, pgvector · [GitHub](https://github.com/ma55530/Dobby)
+
+- Led a 7-person team building a social platform for rating, tracking and recommending films and shows.
+- Built a hybrid recommender combining PyTorch matrix factorization with genre embeddings on 23.6M ratings.
+- Solved user cold start by mapping genre picks into the embedding space, with pgvector and fuzzy-logic ranking.
+
+**Last Translation Benchmark** · contributor · [Paper](https://arxiv.org/abs/2609.04173)
+
+- Wrote EN–HR cases using dialects, false friends and numerals that break 8+ of 10 top MT systems.
+
+## Industry and teaching experience
+
+**Frontend Developer** · *Jun 2025 – Jan 2026*  
+Erste Group Card Processor · Zagreb, Croatia
+
+- Shipped features across three internal banking apps in Angular and TypeScript, integrated with Spring Boot.
+- Designed features end to end, from UI to backend integration, and fixed production bugs reported by staff.
+
+**Student Demonstrator (Teaching Assistant)** · *Oct 2023 – Feb 2025*  
+FER: Digital Logic and Fundamentals of Electrical Engineering · Zagreb, Croatia
+
+- Ran weekly lab sessions and graded practical assignments.
+
+## Skills
+
+**Programming:** Python, C/C++, Java, R, SQL, TypeScript, JavaScript  
+**ML & Data:** PyTorch, Hugging Face Transformers, scikit-learn, NumPy, pandas, fine-tuning  
+**Engineering:** Git, Linux, Bash, Angular, React, Spring Boot  
+**Spoken languages:** Croatian (native), English (C1)

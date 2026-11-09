@@ -1,0 +1,46 @@
+<svg class="projection-fig" viewBox="0 58 580 242" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="proj-title proj-desc">
+  <title id="proj-title">Larger models project closer to the world</title>
+  <desc id="proj-desc">Arrows from one origin. A horizontal arrow is the world. Each model is an arrow that is longer and points closer to the world than the one before: early LLMs, GPT-3, Opus 4.5, and a hypothetical GPT-6-Astra. Dashed lines drop from each tip onto the world axis. Bars below show that each projection covers more of the world.</desc>
+  <style>
+    .projection-fig { width: 100%; height: auto; display: block; }
+    .projection-fig text { font-family: "EB Garamond", Georgia, serif; font-size: 17px; fill: #222; }
+    .projection-fig .muted { fill: #757575; font-size: 15px; font-style: italic; }
+    .projection-fig .drop { stroke: #9a9a9a; stroke-width: 1; stroke-dasharray: 2 3; }
+    @media (max-width: 600px) { .projection-fig text { font-size: 22px; } .projection-fig .muted { font-size: 19px; } }
+  </style>
+  <defs>
+    <marker id="ah-world" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+    <marker id="ah-1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5c2ae"/></marker>
+    <marker id="ah-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8fa588"/></marker>
+    <marker id="ah-3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#668d64"/></marker>
+    <marker id="ah-4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3f7d4a"/></marker>
+  </defs>
+
+  <!-- Drops from each tip onto the world axis (y = 230) -->
+  <line class="drop" x1="76"  y1="142" x2="76"  y2="230"/>
+  <line class="drop" x1="189" y1="96"  x2="189" y2="230"/>
+  <line class="drop" x1="346" y1="106" x2="346" y2="230"/>
+  <line class="drop" x1="467" y1="178" x2="467" y2="230"/>
+
+  <!-- The world -->
+  <line x1="40" y1="230" x2="512" y2="230" stroke="#222" stroke-width="1.6" marker-end="url(#ah-world)"/>
+  <text x="518" y="235">world</text>
+
+  <!-- Model representations: longer, and closer to the world -->
+  <line x1="40" y1="230" x2="76"  y2="142" stroke="#b5c2ae" stroke-width="2.2" marker-end="url(#ah-1)"/>
+  <line x1="40" y1="230" x2="189" y2="96"  stroke="#8fa588" stroke-width="2.2" marker-end="url(#ah-2)"/>
+  <line x1="40" y1="230" x2="346" y2="106" stroke="#668d64" stroke-width="2.2" marker-end="url(#ah-3)"/>
+  <line x1="40" y1="230" x2="467" y2="178" stroke="#3f7d4a" stroke-width="2.2" stroke-dasharray="7 4" marker-end="url(#ah-4)"/>
+
+  <text x="76"  y="128" text-anchor="middle">early LLMs</text>
+  <text x="189" y="83"  text-anchor="middle">GPT-3</text>
+  <text x="346" y="93"  text-anchor="middle">Opus 4.5</text>
+  <text x="458" y="163" text-anchor="middle">GPT-6-Astra?</text>
+
+  <!-- Projections: how much of the world each model captures -->
+  <rect x="40" y="242" width="36"  height="4" rx="2" fill="#b5c2ae"/>
+  <rect x="40" y="250" width="149" height="4" rx="2" fill="#8fa588"/>
+  <rect x="40" y="258" width="306" height="4" rx="2" fill="#668d64"/>
+  <rect x="40" y="266" width="427" height="4" rx="2" fill="#3f7d4a"/>
+  <text class="muted" x="40" y="292">projection of the world</text>
+</svg>

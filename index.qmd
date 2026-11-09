@@ -1,0 +1,53 @@
+---
+title: "Matija Akrap"
+pagetitle: "Matija Akrap"
+title-block-banner: false
+body-classes: home-artwork
+include-in-header:
+  - files/font-preload.html
+  - files/art-preload.html
+listing:
+  id: recent-posts
+  contents: posts
+  sort: "date desc"
+  type: default
+  max-items: 3
+  fields: [date, title, description]
+  date-format: "MMM D, YYYY"
+---
+
+::: {.home-intro}
+![](files/portrait.webp){.portrait fig-alt="Photo of Matija Akrap"}
+
+::: {}
+I am a Data Science master's student at the [Faculty of Electrical Engineering and Computing (FER)](https://www.fer.unizg.hr/en), University of Zagreb. 
+For the 2026/27 academic year I am on exchange at [KU Leuven](https://www.kuleuven.be/english/).
+
+I am interested in machine learning, more specifically **deep learning** and **natural language processing**. 
+It is important to achieve an understanding and interpretability of how frontier AI models are trained, on how they think, reason and make decisions, 
+ensuring that their internal processes are transparent, reliable, and aligned with human values.
+
+::: {.home-links}
+[Email](mailto:matija.akrap009@gmail.com)
+[GitHub](https://github.com/ma55530)
+[LinkedIn](https://www.linkedin.com/in/matija-akrap-0837ab176/)
+[X](https://x.com/guy2vec)
+[CV](cv.qmd)
+:::
+:::
+:::
+
+## News
+
+::: {.news-list}
+- [Sep 2026]{.date} [Started a one-year exchange at KU Leuven.]{.news-text}
+- [Jul 2026]{.date} [Finished my BSc in Computing at FER.]{.news-text}
+- [Jul 2026]{.date} [[Our paper](https://aclanthology.org/2026.semeval-1.5/) on detecting evasive answers in political Q&A was published at SemEval 2026 (ACL 2026).]{.news-text}
+:::
+
+## Recent writing
+
+::: {#recent-posts}
+:::
+
+[All posts →](blog.qmd)

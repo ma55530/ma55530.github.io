@@ -1,0 +1,509 @@
+/*-- scss:defaults --*/
+// LessWrong-inspired: serif everywhere, narrow column, muted green links.
+
+$font-family-serif: "EB Garamond", "Garamond", "Georgia", serif;
+$font-family-sans-serif: $font-family-serif;   // serif everywhere
+$font-family-monospace: "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
+$headings-font-family: $font-family-serif;
+
+$font-size-root: 20px;
+$line-height-base: 1.55;
+$headings-font-weight: 500;
+
+$body-bg: #f7f3eb;
+$body-color: #302f29;
+$text-muted: #706b60;
+$link-color: #3f7d4a;          // LessWrong-like green
+$link-decoration: none;
+$link-hover-decoration: underline;
+
+$navbar-bg: #f7f3eb;
+$navbar-fg: #222222;
+$navbar-hl: #3f7d4a;
+$footer-bg: #ffffff;
+$footer-fg: #757575;
+
+$code-color: #333333;
+$code-bg: #efeae0;
+$border-color: #ded8cb;
+
+/*-- scss:rules --*/
+
+body {
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// Narrow reading column
+.page-columns.page-layout-article,
+#quarto-content {
+  --content-width: 680px;
+}
+main.content {
+  max-width: 680px;
+}
+
+// Navbar: thin, quiet, serif
+.navbar {
+  border-bottom: 1px solid $border-color;
+  box-shadow: none;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 1.05rem;
+}
+.navbar-brand, .navbar-title { font-weight: 500; letter-spacing: 0.01em; }
+.navbar .nav-link { color: #555 !important; }
+.navbar .nav-link:hover, .navbar .nav-link.active { color: $link-color !important; }
+
+// Headings
+h1, .title { font-size: 2.3rem; font-weight: 500; line-height: 1.15; margin-bottom: 0.4rem; }
+h2 { font-size: 1.6rem; margin-top: 2.2rem; border-bottom: none; font-weight: 500; }
+h3 { font-size: 1.25rem; margin-top: 1.6rem; font-weight: 600; }
+#title-block-header { margin-bottom: 2rem; }
+.quarto-title .subtitle, .description { color: $text-muted; font-style: italic; font-size: 1.15rem; }
+.quarto-title-meta-heading { font-variant: small-caps; text-transform: lowercase; letter-spacing: 0.04em; color: $text-muted; }
+
+// Links
+a { text-underline-offset: 3px; }
+main a:not(.nav-link):not(.btn) { text-decoration: none; border-bottom: 1px solid rgba(63,125,74,0.25); }
+main a:not(.nav-link):not(.btn):hover { border-bottom-color: $link-color; text-decoration: none; }
+
+// Sidenotes (footnotes in the margin)
+.column-margin, .margin-aside, aside, .footnotes, div.csl-entry {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+// Blockquotes like LessWrong
+blockquote {
+  border-left: 3px solid #e0e0e0;
+  padding-left: 1.1rem;
+  color: #444;
+  font-style: normal;
+  margin-left: 0;
+}
+
+// Code
+code { font-size: 0.8em; padding: 0.1em 0.25em; border-radius: 3px; }
+div.sourceCode, pre { font-size: 0.78rem; border: 1px solid $border-color; border-radius: 4px; background: $code-bg; }
+
+// Figures
+figure figcaption, .figure-caption { font-size: 0.85rem; color: $text-muted; text-align: left; }
+
+// Math
+.katex { font-size: 1.05em; }
+
+hr { opacity: 0.25; margin: 2.5rem auto; width: 30%; }
+
+// ---------- Home ----------
+.home-intro { display: flex; gap: 1.8rem; align-items: flex-start; margin-top: 1rem; }
+.home-intro > p:first-child, .home-intro > .quarto-figure { flex: 0 0 150px; margin: 0.3rem 0 0 0; }
+.home-intro img.portrait, .home-intro img { width: 150px !important; height: 150px; max-width: none; object-fit: cover; border-radius: 50%; filter: grayscale(15%); }
+@media (max-width: 600px) { .home-intro { flex-direction: column; } }
+.home-links { margin-top: 0.6rem; font-size: 1rem; }
+.home-links a { margin-right: 1rem; }
+
+.news-list { list-style: none; padding-left: 0; }
+.news-list li { display: flex; gap: 1rem; margin-bottom: 0.4rem; }
+.news-list .date { color: $text-muted; min-width: 6.5rem; font-variant-numeric: tabular-nums; }
+
+// ---------- Publications ----------
+.pub { margin-bottom: 1.6rem; }
+.pub .pub-title { font-size: 1.12rem; font-weight: 500; }
+.pub .pub-authors { color: #444; }
+.pub .pub-venue { font-style: italic; color: $text-muted; }
+.pub .pub-links { font-size: 0.9rem; font-variant: small-caps; text-transform: lowercase; letter-spacing: 0.04em; }
+.pub .pub-links a { margin-right: 0.8rem; }
+.me { font-weight: 600; }
+
+// ---------- Blog listing ----------
+main .quarto-listing a, main .quarto-listing a:hover { border-bottom: none !important; }
+main .quarto-listing a .listing-title:hover { color: $link-color; }
+.quarto-listing-default .metadata { border: none; }
+.quarto-title .quarto-categories .quarto-category { border: none !important; padding-left: 0; color: $text-muted; font-variant: small-caps; text-transform: lowercase; letter-spacing: 0.05em; }
+.quarto-listing-default .list-item, .quarto-post { border-bottom: none !important; padding-bottom: 0.4rem; }
+.quarto-post .listing-title { font-size: 1.3rem; font-weight: 500; }
+.quarto-post .listing-description { color: #555; }
+.quarto-post .metadata, .listing-date, .listing-read-time { color: $text-muted; font-size: 0.9rem; }
+.listing-categories .listing-category, .quarto-category {
+  font-variant: small-caps; text-transform: lowercase; border: none; color: $text-muted; padding: 0 0.3rem;
+}
+
+// ---------- CV ----------
+.cv-entry { display: grid; grid-template-columns: 1fr auto; column-gap: 1rem; margin-bottom: 0.9rem; }
+.cv-entry .what { font-weight: 500; }
+.cv-entry .when { color: $text-muted; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cv-entry .detail { grid-column: 1 / -1; color: #444; font-size: 0.95rem; }
+.cv-pdf { font-variant: small-caps; text-transform: lowercase; letter-spacing: 0.04em; }
+
+.nav-footer { border-top: 1px solid $border-color; font-size: 0.85rem; }
+
+// ---------- polish ----------
+.news-list ul { list-style: none; padding-left: 0; }
+.news-list ul li { display: flex; gap: 1rem; margin-bottom: 0.4rem; }
+.quarto-post { display: grid !important; grid-template-columns: 7.5rem 1fr; column-gap: 1.2rem; margin-bottom: 1.2rem; }
+.quarto-post .metadata { padding-top: 0.35rem; }
+.quarto-post .body { width: auto !important; }
+@media (max-width: 600px) { .quarto-post { grid-template-columns: 1fr; } }
+code, pre, .sourceCode { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+.quarto-post .metadata { grid-column: 1; grid-row: 1; }
+.quarto-post .body { grid-column: 2; grid-row: 1; }
+@media (max-width: 600px) { .quarto-post .metadata, .quarto-post .body { grid-column: 1; grid-row: auto; } }
+.news-list .date { min-width: 5.5rem; }
+.quarto-post .listing-categories .listing-category { border: none !important; padding-left: 0; font-variant: small-caps; text-transform: lowercase; color: #757575; }
+
+
+// Warm paper, with a soft pigment wash kept outside the reading column.
+body {
+  background:
+    radial-gradient(ellipse at 0% 12%, rgba(172, 183, 142, .05), transparent 40%),
+    radial-gradient(ellipse at 100% 38%, rgba(205, 166, 126, .045), transparent 42%),
+    linear-gradient(120deg, #fdfcf9, #fffefc 48%, #fdfcf8);
+  background-attachment: fixed;
+}
+main.content { width: 100%; min-width: 0; margin-inline: auto; padding-bottom: 4rem; }
+#quarto-header .navbar {
+  background: rgba(254, 254, 251, .94) !important;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 3px 18px rgba(68, 55, 35, .035);
+}
+.navbar > .container-fluid { max-width: 1180px; margin-inline: auto; }
+#title-block-header { padding-top: 1.8rem; margin-bottom: 2.2rem; }
+h1.title { letter-spacing: -.025em; }
+h2 { letter-spacing: -.015em; }
+.home-intro img { border: 5px solid #fffefc; box-shadow: 0 8px 28px rgba(70, 58, 37, .12); }
+.home-links { display: flex; flex-wrap: wrap; gap: .3rem 1rem; }
+.home-links p { margin-bottom: 0; }
+.pub {
+  padding: 1.2rem 1.4rem;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(255,255,255,.55), rgba(240,234,220,.5));
+  box-shadow: 0 5px 22px rgba(70,58,37,.045);
+}
+.quarto-post { padding: 1rem 0 !important; border-bottom: 1px solid $border-color !important; }
+.quarto-post .listing-title { line-height: 1.25; }
+blockquote { border-color: #a8b094; background: rgba(225,229,212,.25); padding: .8rem 1.1rem; }
+blockquote > :last-child { margin-bottom: 0; }
+div.sourceCode { box-shadow: 0 4px 18px rgba(70,58,37,.04); }
+:focus-visible { outline: 2px solid #55724a; outline-offset: 5px; border-radius: 2px; }
+section[id], h2, h3 { scroll-margin-top: 110px; }
+
+// Chapter rail, pinned to the far left. Other dots are tiny; the current one is
+// big, with a soft halo. Labels show for the current chapter, and for all on hover.
+.chapter-nav {
+  --dot: 16px; --rail: 30px; --ease: cubic-bezier(.2, .8, .2, 1);
+  position: fixed; left: 22px; top: 50%; transform: translateY(-50%);
+  width: 200px; max-height: 70vh; overflow-y: auto; scrollbar-width: none;
+  z-index: 20; font-size: .74rem; line-height: 1.25;
+}
+.chapter-nav ol { list-style: none; padding: 0; margin: 0; position: relative; }
+.chapter-nav ol::before {
+  content: ''; position: absolute; left: calc(var(--rail) / 2); top: 16px; bottom: 16px;
+  width: 1px; background: #e0d9ca; pointer-events: none;
+}
+.chapter-nav li { position: relative; z-index: 1; }
+.chapter-nav a {
+  display: flex; align-items: center; gap: 10px; min-height: 32px;
+  color: #8a8477; text-decoration: none; border: 0 !important;
+}
+.chapter-nav a::before {
+  content: ''; flex: 0 0 var(--dot); width: var(--dot); height: var(--dot);
+  margin-inline: calc((var(--rail) - var(--dot)) / 2);
+  border-radius: 50%; background: #cfc8b6;
+  transform: scale(.28);
+  transition: transform .45s var(--ease), background-color .3s, box-shadow .45s var(--ease);
+}
+.chapter-nav .label {
+  min-width: 0; padding-block: .2rem;   // full names: long ones wrap onto a second line
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity .3s, transform .4s var(--ease), color .2s;
+}
+.chapter-nav a:hover { color: #3f6a3f; }
+.chapter-nav a:hover::before { transform: scale(.45); background: #9aa889; }
+.chapter-nav a[aria-current="location"] { color: #3f6a3f; font-weight: 600; }
+.chapter-nav a[aria-current="location"]::before {
+  transform: scale(1); background: $link-color; box-shadow: 0 0 0 6px rgba(63, 125, 74, .13);
+}
+.chapter-nav a[aria-current="location"] .label,
+.chapter-nav:hover .label,
+.chapter-nav:focus-within .label { opacity: 1; transform: none; }
+// Subsections (### under ##, or ## under #): smaller dots, indented smaller labels.
+.chapter-nav li.depth-1 a, .chapter-nav li.depth-2 a { min-height: 26px; }
+.chapter-nav li.depth-1 a::before { transform: scale(.22); }
+.chapter-nav li.depth-2 a::before { transform: scale(.18); }
+.chapter-nav li.depth-1 .label { padding-left: 8px; font-size: .92em; }
+.chapter-nav li.depth-2 .label { padding-left: 16px; font-size: .88em; }
+.chapter-nav li.depth-1 a:hover::before, .chapter-nav li.depth-2 a:hover::before { transform: scale(.38); }
+.chapter-nav li.depth-1 a[aria-current="location"]::before,
+.chapter-nav li.depth-2 a[aria-current="location"]::before { transform: scale(1); box-shadow: 0 0 0 6px rgba(63, 125, 74, .13); }
+
+// Narrow screens: a small pill at the bottom. Dots in a row; only the
+// current chapter's name opens up next to its dot.
+@media (max-width: 1199px) {
+  body.has-chapter-nav { padding-bottom: 84px; }
+  .chapter-nav {
+    top: auto; bottom: 14px; left: 50%; transform: translateX(-50%);
+    width: max-content; max-width: calc(100% - 24px); max-height: none; overflow: hidden;
+    padding: 4px 12px; border: 1px solid #ded8cb; border-radius: 999px;
+    background: rgba(255, 254, 252, .96); box-shadow: 0 5px 24px rgba(70, 58, 37, .10);
+  }
+  .chapter-nav ol { display: flex; align-items: center; }
+  .chapter-nav ol::before { display: none; }
+  .chapter-nav li { min-width: 0; }
+  .chapter-nav li:has(> a[aria-current="location"]) { min-width: min-content; }   // never cut a word of the current name
+  .chapter-nav a { gap: 0; min-height: 36px; padding-inline: 5px; }
+  // The old name closes at once; only the new one opens with an animation (two at once squeeze the pill).
+  .chapter-nav .label { max-width: 0; padding-block: 0; white-space: nowrap; overflow: hidden; transition: none; }
+  .chapter-nav a[aria-current="location"] .label { max-width: min(60vw, 26rem); margin-left: 8px; opacity: 1; transform: none; white-space: normal; line-height: 1.2;
+    transition: max-width .45s var(--ease), opacity .3s, margin .45s var(--ease); }
+  .chapter-nav li.depth-1 a, .chapter-nav li.depth-2 a { min-height: 36px; padding-inline: 1px; }
+  .chapter-nav li.depth-1 .label, .chapter-nav li.depth-2 .label { padding-left: 0; }
+}
+@media (max-width: 600px) {
+  #title-block-header { padding-top: .8rem; }
+  h1.title { font-size: 2rem; }
+  .home-intro { gap: 1.2rem; }
+  .news-list ul li { display: block; margin-bottom: .8rem; }
+  .news-list .date { display: block; font-size: .85rem; }
+  .pub { padding: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+@media print {
+  body { background: white; }
+  .chapter-nav { display: none; }
+  body.has-chapter-nav { padding-bottom: 0; }
+}
+// Quarto's full-page grid carries sidenotes; constrain its text tracks, not the grid itself.
+main.content.page-full { max-width: none; width: auto; margin-inline: 0; }
+@media (min-width: 1200px) {
+  #quarto-content.page-columns, main.content.page-columns, main.content .page-columns {
+    grid-template-columns:
+      [screen-start] 24px [screen-start-inset] minmax(0, 1fr)
+      [page-start page-start-inset] minmax(0, 210px)
+      [body-start-outset] 32px [body-start body-content-start] minmax(0, 680px)
+      [body-content-end body-end] 32px [body-end-outset] minmax(0, 210px)
+      [page-end-inset page-end] minmax(0, 1fr) [screen-end-inset] 24px [screen-end];
+  }
+}
+
+// Preserve the news alignment and current painting placement during the palette rollback.
+.news-list ul li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1rem; }
+.news-text { min-width: 0; }
+@media (max-width: 600px) { .news-list ul li { grid-template-columns: 1fr; gap: .1rem; } }
+
+
+// Étretat becomes part of the page edge, outside the centered reading column.
+// Adjust these defaults after choosing values in files/art-preview.html.
+:root { --grain-angle: 125deg; --grain-spread: 85%; --grain-opacity: .04; --grain-contrast: 170%; --grain-brightness: 100%; --art-inset: 160px; --art-fade: 68%; --art-height: 900px; }
+body { position: relative; isolation: isolate; }
+body.home-artwork::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  top: 76px;
+  right: 0;
+  width: max(0px, calc((100% - 680px) / 2 + var(--art-inset)));
+  height: var(--art-height);
+  // Web-sized copies of files/etretat.tif. Absolute URLs so they match the
+  // <link rel="preload"> in files/art-preload.html (one download, not two).
+  background: url("/files/etretat-1800.jpg") 58% 45% / auto 100% no-repeat;
+  background-image: image-set(url("/files/etretat-1800.webp") type("image/webp"), url("/files/etretat-1800.jpg") type("image/jpeg"));
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--art-fade)), linear-gradient(to bottom, #000 65%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent, #000 var(--art-fade)), linear-gradient(to bottom, #000 65%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+@media (max-width: 1199px) {
+  body.home-artwork::before {
+    width: min(100%, calc(540px + var(--art-inset)));
+    height: 250px;
+    background-image: image-set(url("/files/etretat-1400.webp") type("image/webp"), url("/files/etretat-1800.jpg") type("image/jpeg"));
+    background-size: cover;
+    background-position: 50% 47%;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--art-fade)), linear-gradient(to bottom, #000 25%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent, #000 var(--art-fade)), linear-gradient(to bottom, #000 25%, transparent 100%);
+  }
+  .home-artwork #title-block-header { padding-top: 230px; }
+}
+@media (max-width: 600px) {
+  body.home-artwork::before { height: 210px; background-position: 50% 42%; }
+  .home-artwork #title-block-header { padding-top: 190px; }
+}
+@media print { body.home-artwork::before { display: none; } .home-artwork #title-block-header { padding-top: 0; } }
+
+// Keep the navigation visible even when Quarto's headroom classes change.
+#quarto-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1030; transform: none !important; }
+#quarto-header.headroom--unpinned, #quarto-header.headroom--pinned { transform: none !important; }
+// Paper grain: a small tile of warm dark specks (files/grain.svg), repeated
+// behind the content and artwork. --grain-opacity sets the strength.
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background: url("files/grain.svg") repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+  opacity: var(--grain-opacity);
+}
+@media print { body::after { display:none; } #quarto-header { position: static; } }
+
+// Keep the publication card opaque over the painting.
+.pub { background: #fbfaf6; }
+
+// Footer: just the RSS link, small caps, on the paper background.
+.nav-footer { background: transparent; border-top: 1px solid $border-color; padding-block: 1.1rem; }
+.nav-footer-left, .nav-footer-right { display: none; }   // only the center is used
+.nav-footer, .nav-footer-center { min-height: 0; }
+.nav-footer .nav-footer-center { margin: 0 !important; }   // Quarto adds 42px on phones
+.nav-footer-center p { margin: 0; }
+.nav-footer .rss-subscribe { font-variant: small-caps; text-transform: lowercase; letter-spacing: .04em; font-size: .9rem; color: $link-color; }
+
+// Listing tags: no box padding, so the tag text lines up with the post title.
+.quarto-listing .listing-categories .listing-category { padding: 0 !important; margin: 0 .8rem 0 0; }
+
+// References: no beige box from the theme, just the thin top rule.
+#quarto-appendix.default { background: transparent; }
+
+// Smaller code box: shrinks to fit its content, smaller text.
+.small-code pre, .small-code div.sourceCode {
+  width: fit-content;   // box only as wide as the longest line
+  font-size: .65rem;    // the default code size is .78rem
+  padding: .4rem .7rem;
+  background: #f7f4ee;  // a bit lighter than other code boxes ($code-bg #efeae0)
+}
+// Pixel grid (```{.pixel-grid}): each number sits in a cell shaded by its ink value.
+.pixel-grid {
+  --cell: minmax(0, 1fr);
+  display: grid; grid-template-columns: repeat(var(--cols), var(--cell));
+  max-width: 560px; margin: 1.2rem auto .4rem;
+  border: 1px solid $border-color; border-radius: 4px; overflow: hidden;
+  background: #fffefc;
+  font-family: "JetBrains Mono", monospace; font-size: .4rem; line-height: 1;
+  font-variant-numeric: tabular-nums; letter-spacing: -.04em;
+}
+.pixel-grid span {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  background: rgba(38, 36, 31, var(--v)); color: #6f6a60;
+}
+.pixel-grid span.z { color: #dcd6ca; }
+.pixel-grid span.hi { color: #f6f3ec; }
+.pixel-grid.indexed { border: 0; border-radius: 0; overflow: visible; background: transparent; }
+.pixel-grid span.ix { background: transparent; color: #a39c8d; font-size: .9em; }
+.pixel-grid.indexed span:not(.ix) { box-shadow: 0 0 0 .5px rgba(222, 216, 203, .6); }
+.pixel-grid.digits { font-size: .6rem; letter-spacing: 0; }  // one digit per cell: room for bigger text
+@media (max-width: 600px) { .pixel-grid { font-size: 5px; letter-spacing: -.08em; } }
+@media (max-width: 600px) { .pixel-grid.digits { font-size: 8px; } }
+
+// Show/hide toggles (<details class="toggle ...">): a quiet small-caps link with a turning arrow.
+details.prompt-box { margin: -.4rem 0 1.8rem; }
+details.toggle > summary {
+  display: inline-flex; align-items: center; gap: .45rem; cursor: pointer; list-style: none;
+  font-variant: small-caps; text-transform: lowercase; letter-spacing: .04em; font-size: .9rem;
+  color: $link-color;
+}
+details.toggle > summary::-webkit-details-marker { display: none; }
+details.toggle > summary::before {
+  content: ''; width: .38em; height: .38em; margin-top: -.15em;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg); transition: transform .25s;
+}
+details.toggle[open] > summary::before { transform: rotate(45deg); margin-top: -.35em; }
+details.toggle > summary:hover { text-decoration: underline; text-decoration-color: rgba(63, 125, 74, .35); text-underline-offset: 3px; }
+details.toggle .when-open, details.toggle[open] .when-closed { display: none; }
+details.toggle[open] .when-open { display: inline; }
+details.prompt-box div.sourceCode, details.prompt-box pre { margin-top: .6rem; background: #f7f4ee; box-shadow: none; }
+details.prompt-box pre { white-space: pre-wrap; font-size: .72rem; line-height: 1.6; padding: .8rem 1rem; }
+details.prompt-box pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+// Model output card: model name, the answer up front, reasoning behind a toggle.
+.model-output {
+  margin: 1rem 0 2rem; padding: .85rem 1.1rem .7rem;
+  border: 1px solid $border-color; border-left: 3px solid $link-color; border-radius: 4px;
+  background: #fffefc; box-shadow: 0 4px 18px rgba(70, 58, 37, .04);
+}
+.model-output-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; }
+.model-output-head p { display: contents; }
+.model-name { font-family: "JetBrains Mono", monospace; font-size: .68rem; color: #757575; letter-spacing: .02em; }
+.model-answer { font-size: .95rem; color: #555; }
+.model-digit { font-size: 1.6rem; font-weight: 600; color: #222; margin: 0 .1rem; line-height: 1; }
+details.model-reasoning { margin-top: .35rem; }
+details.model-reasoning[open] > summary { margin-bottom: .5rem; }
+details.model-reasoning p { font-size: .9rem; line-height: 1.55; color: #3a3a3a; }
+details.model-reasoning p:last-child { margin-bottom: .2rem; }
+.prompt-label { display: block; margin-top: .9rem; font-variant: small-caps; text-transform: lowercase; letter-spacing: .04em; font-size: .8rem; color: #757575; }
+.model-meta { display: block; margin-top: .5rem; padding-top: .45rem; border-top: 1px solid #eee8dc; font-size: .72rem; color: #8a8477; }
+// Small images shown big (e.g. a 96 × 96 dataset sample): keep hard pixel edges.
+.pixelated img, img.pixelated { image-rendering: pixelated; max-width: min(100%, 480px); margin-inline: auto; display: block; border-radius: 3px; }
+// Three-panel figure (e.g. three models' drawings side by side): small centred captions, tight gaps.
+.banana-row .quarto-figure { margin-bottom: .4rem; }
+.banana-row .figure-caption, .banana-row figcaption { font-size: .8rem; text-align: center; }
+.banana-row img.pixelated { max-width: 100%; }
+// Comparison table: light rules, numbers lined up.
+.compare-table table { font-size: .85rem; margin: .4rem 0 1.4rem; font-variant-numeric: tabular-nums; }
+.compare-table th { font-weight: 600; color: #555; border-bottom: 1px solid $border-color !important; }
+.compare-table td, .compare-table th { padding: .3rem .6rem !important; }
+.compare-table td:first-child { color: #757575; }
+.compare-table th, .compare-table td:not(:first-child) { white-space: nowrap; }
+// Keep the three panels side by side on phones too (Quarto stacks them by default).
+.banana-row .quarto-layout-row { display: flex; flex-direction: row !important; flex-wrap: nowrap !important; gap: .6rem; }
+.banana-row .quarto-layout-cell { flex: 1 1 0 !important; min-width: 0; padding: 0 !important; }
+@media (max-width: 600px) { .banana-row .figure-caption, .banana-row figcaption { font-size: .68rem; } }
+@media (max-width: 600px) { .compare-table td, .compare-table th { padding: .3rem .3rem !important; } .compare-table table { font-size: .8rem; } }
+
+// /blog listing: text on the left; thumbnail on the right with the date under it.
+#listing-listing .quarto-post { grid-template-columns: 1fr 11rem; grid-template-rows: auto 1fr; column-gap: 1.6rem; row-gap: 0 !important; align-items: start; }
+#listing-listing .quarto-post .body { grid-column: 1; grid-row: 1 / span 2; }
+#listing-listing .quarto-post .thumbnail { grid-column: 2; grid-row: 1; width: 100%; height: auto; padding: 0; margin: 0; }
+#listing-listing .quarto-post .thumbnail a { display: block; line-height: 0; }
+#listing-listing .quarto-post .metadata { grid-column: 2; grid-row: 2; padding-top: .4rem; text-align: right; }
+#listing-listing .quarto-post .thumbnail-image {
+  width: 100%; height: auto !important; aspect-ratio: 1; object-fit: cover;
+  image-rendering: pixelated; border-radius: 4px; box-shadow: 0 4px 16px rgba(70, 58, 37, .1);
+}
+@media (max-width: 600px) {
+  #listing-listing .quarto-post { grid-template-columns: 1fr 6.5rem; column-gap: 1rem; }
+  #listing-listing .quarto-post .body { grid-column: 1; grid-row: 1 / span 2; }
+  #listing-listing .quarto-post .thumbnail { grid-column: 2; grid-row: 1; }
+  #listing-listing .quarto-post .metadata { grid-column: 2; grid-row: 2; font-size: .8rem; }
+}
+
+// RGB matrix figure (posts/2026-11-08-1st/figures/rgb-matrix.html): photo, marked square, enlarged cells with their numbers.
+.rgb-figure { display: flex; align-items: center; justify-content: center; gap: 1.1rem; margin: .4rem 0 .2rem; }
+.rgb-source { position: relative; flex: 0 0 9.5rem; line-height: 0; }
+.rgb-source img { width: 100%; image-rendering: pixelated; border-radius: 3px; }
+.rgb-box { position: absolute; border: 2px solid #fffefc; outline: 1.5px solid $link-color; box-sizing: border-box; }
+.rgb-arrow { flex: 0 0 1.6rem; height: 1.5px; background: $link-color; position: relative; }
+.rgb-arrow::after { content: ''; position: absolute; right: -1px; top: -4px; border-left: 7px solid $link-color; border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; }
+.rgb-patch-wrap { flex: 0 1 auto; min-width: 0; }
+.rgb-patch { display: grid; grid-template-columns: 1.1rem repeat(var(--cols), 3.1rem); gap: 2px; }
+.rgb-patch > span { aspect-ratio: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 2px;
+  font-family: $font-family-monospace; font-size: .5rem; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.rgb-patch > span i { font-style: normal; }
+.rgb-patch > span.light { color: #26241f; }
+.rgb-patch > span.dark { color: #f6f3ec; }
+.rgb-patch > span.ix { aspect-ratio: auto; color: $text-muted; font-size: .5rem; }
+.rgb-legend { margin: .4rem 0 0 1.25rem; font-size: .72rem; color: $text-muted; }
+.rgb-legend i { font-style: normal; font-family: $font-family-monospace; font-size: .62rem; }
+@media (max-width: 600px) {
+  .rgb-figure { flex-direction: column; gap: .7rem; }
+  .rgb-source { flex-basis: auto; width: 7rem; }
+  .rgb-arrow { width: 1.5px; height: 1.2rem; flex: 0 0 1.2rem; }
+  .rgb-arrow::after { right: -4px; top: auto; bottom: -1px; border-left: 4.5px solid transparent; border-right: 4.5px solid transparent; border-top: 7px solid $link-color; border-bottom: 0; }
+  .rgb-patch { grid-template-columns: .9rem repeat(var(--cols), minmax(0, 2.8rem)); }
+}
+
+// Point cloud figure (posts/2026-11-08-1st/figures/pointcloud.html): a canvas you can turn.
+.pointcloud { margin: 0 auto; width: min(100%, 420px); }
+.pointcloud canvas {
+  display: block; width: 100%; aspect-ratio: 1; cursor: grab; touch-action: pan-y;
+  border-radius: 6px; background: radial-gradient(circle at 50% 45%, rgba(225, 229, 212, .35), transparent 70%);
+}
+.pointcloud canvas:active { cursor: grabbing; }
+.pointcloud-hint { margin: .2rem 0 0; text-align: center; font-size: .72rem; color: $text-muted; font-variant: small-caps; text-transform: lowercase; letter-spacing: .04em; }
+
+// #### sub-subsections: a step below ### (25px, 600), still clearly a heading.
+main.content h4 { font-size: 1.1rem; font-weight: 600; margin-top: 1.9rem; margin-bottom: .6rem; letter-spacing: -.005em; }

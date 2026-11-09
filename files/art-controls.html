@@ -1,0 +1,10 @@
+<script>
+(() => {
+  const params = new URLSearchParams(location.search);
+  for (const [key, variable, min, max, unit] of [['direction','--grain-angle',0,360,'deg'],['spread','--grain-spread',10,200,'%'],['grain','--grain-opacity',0,1,''],['contrast','--grain-contrast',100,300,'%'],['brightness','--grain-brightness',80,300,'%'],['inset','--art-inset',0,400,'px'],['fade','--art-fade',20,95,'%'],['height','--art-height',500,1400,'px']]) {
+    if (!params.has(key)) continue;
+    const value = Number(params.get(key));
+    if (Number.isFinite(value)) document.documentElement.style.setProperty(variable, Math.max(min, Math.min(max,value)) + unit);
+  }
+})();
+</script>

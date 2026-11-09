@@ -1,0 +1,21 @@
+# Settings for every post in /posts
+title-block-banner: false
+date-format: "MMMM D, YYYY"
+reference-location: margin
+citation-location: document   # reference list at the bottom
+reference-section-title: References   # stops a final heading from becoming the References title
+toc: false
+body-classes: blog-article
+template-partials:
+  - ../files/partials/title-metadata.html   # adds the optional read-time field
+
+# Comments + reactions (likes) via Giscus.
+# 1. Enable Discussions on your repo. 2. Install https://github.com/apps/giscus
+# 3. Uncomment the lines below.
+# comments:
+#   giscus:
+#     repo: ma55530/ma55530.github.io
+#     category: "Announcements"
+#     mapping: pathname
+#     reactions-enabled: true
+#     theme: light

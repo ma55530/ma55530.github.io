@@ -1,0 +1,19 @@
+---
+title: "Publications"
+body-classes: home-artwork
+include-in-header:
+  - files/font-preload.html
+  - files/art-preload.html
+---
+
+<!-- To add a paper: copy one .pub block and edit it. Your name goes in [Name]{.me}. -->
+
+::: {.pub}
+[FER at SemEval-2026 Task 6: Analysis of Different Approaches to Unmasking Political Question Evasions](https://aclanthology.org/2026.semeval-1.5/){.pub-title}\
+[[Matija Akrap]{.me}, Andrija Bilić, Roko Šimpraga, Fran Račić, Luka Čuturilo]{.pub-authors}\
+[Proceedings of the 20th International Workshop on Semantic Evaluation (SemEval-2026), co-located with ACL 2026, pp. 30–36]{.pub-venue}
+
+Fine-tuned transformer models to detect evasive answers in political question–answer dialogues (CLARITY shared task).
+
+[[paper](https://aclanthology.org/2026.semeval-1.5.pdf) [bibtex](https://aclanthology.org/2026.semeval-1.5.bib)]{.pub-links}
+:::

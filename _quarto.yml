@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - files/
+
+website:
+  title: "Matija Akrap"
+  site-url: "https://ma55530.github.io"
+  description: "Matija Akrap — ML and interpretability research, notes and writing."
+  favicon: files/favicon.svg
+  page-navigation: false
+  back-to-top-navigation: false
+  page-footer:
+    center: "[Subscribe via RSS](/blog.xml){.rss-subscribe}"
+  navbar:
+    background: light
+    search: false
+    pinned: true
+    right:
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Publications"
+        href: publications.qmd
+      - text: "CV"
+        href: cv.qmd
+
+filters:
+  - filters/ref-links.lua   # [text](#ref-key) links get hover + go into References
+  - filters/pixel-grid.lua  # ```{.pixel-grid} blocks become shaded number grids
+
+format:
+  html:
+    theme:
+      light: [cosmo, styles.scss]
+    css: files/fonts/fonts.css
+    include-in-header: files/font-preload.html
+    include-after-body:
+      - files/art-controls.html
+      - files/chapter-nav.html
+    toc: false
+    anchor-sections: false
+    grid:
+      body-width: 680px
+      sidebar-width: 210px
+      margin-width: 210px
+      gutter-width: 32px
+    page-layout: article
+    reference-location: margin   # footnotes become sidenotes
+    citation-location: document   # reference list at the bottom
+    html-math-method:
+      method: katex
+      url: /files/katex/   # self-hosted
+    smooth-scroll: false
+    link-external-newwindow: true
+    highlight-style: github

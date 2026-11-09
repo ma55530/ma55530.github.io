@@ -1,0 +1,12 @@
+/.quarto/
+/_site/
+*_files/
+
+**/*.quarto_ipynb
+
+.DS_Store
+/cv.html
+
+files/etretat.tif
+files/etretat-web.jpg
+files/etretat-fast.webp

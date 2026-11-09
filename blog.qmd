@@ -1,0 +1,13 @@
+---
+title: "Blog"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  fields: [image, date, read-time, title, description, categories]
+  image-align: right
+  date-format: "MMM D, YYYY"
+  categories: false
+  feed: true
+page-layout: article
+---

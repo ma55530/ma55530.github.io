@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ma55530.github.io/index.html</loc>
-    <lastmod>2026-11-09T13:31:03.935Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ma55530.github.io/cv.html</loc>
-    <lastmod>2026-11-09T13:31:03.923Z</lastmod>
-  </url>
-  <url>
     <loc>https://ma55530.github.io/blog.html</loc>
-    <lastmod>2026-11-09T13:31:03.923Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ma55530.github.io/posts/same-world-different-senses/index.html</loc>
-    <lastmod>2026-11-09T13:31:03.937Z</lastmod>
+    <lastmod>2026-11-09T13:24:00.960Z</lastmod>
   </url>
   <url>
     <loc>https://ma55530.github.io/publications.html</loc>
-    <lastmod>2026-11-09T13:31:03.937Z</lastmod>
+    <lastmod>2026-11-09T13:24:01.011Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ma55530.github.io/posts/same-world-different-senses/index.html</loc>
+    <lastmod>2026-11-09T13:24:01.011Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ma55530.github.io/index.html</loc>
+    <lastmod>2026-11-09T13:24:01.003Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ma55530.github.io/cv.html</loc>
+    <lastmod>2026-11-09T13:24:00.960Z</lastmod>
   </url>
 </urlset>

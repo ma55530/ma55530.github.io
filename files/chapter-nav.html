@@ -1,0 +1,72 @@
+<script>
+(() => {
+  if (!document.body.classList.contains('blog-article')) return;
+  const main = document.querySelector('main.content');
+  if (!main) return;
+  // # to #### headings in the post (not the page title, not footnotes).
+  const headings = [...main.querySelectorAll('h1, h2, h3, h4')].filter(h =>
+    (h.id || h.closest('section[id]')) && !h.closest('#title-block-header, .footnotes'));
+  if (!headings.length) return;
+  // Depth relative to the highest level used, so "#" or "##" can be the top.
+  // References (in the appendix) is always top level.
+  const level = h => h.closest('#quarto-appendix') ? null : Number(h.tagName[1]);
+  const top = Math.min(...headings.map(level).filter(l => l !== null));
+  // Depth = one step below the parent heading (the last one with a higher level),
+  // so # then ### is one step, and headings of the same level get the same depth.
+  const parents = [];   // stack of {level, depth}
+  const depths = new Map(headings.map(h => {
+    const l = level(h);
+    if (l === null) { parents.length = 0; return [h, 0]; }
+    while (parents.length && parents[parents.length - 1].level >= l) parents.pop();
+    const d = parents.length ? Math.min(parents[parents.length - 1].depth + 1, 2) : 0;
+    parents.push({ level: l, depth: d });
+    return [h, d];
+  }));
+  const depth = h => depths.get(h);
+  const nav = document.createElement('nav');
+  nav.className = 'chapter-nav';
+  nav.setAttribute('aria-label', 'Article chapters');
+  const list = document.createElement('ol');
+  const links = headings.map((heading, index) => {
+    const item = document.createElement('li');
+    if (depth(heading) > 0) item.className = 'depth-' + depth(heading);
+    const link = document.createElement('a');
+    const clean = heading.cloneNode(true);
+    clean.querySelectorAll('.anchorjs-link').forEach(a => a.remove());
+    const label = document.createElement('span');
+    label.className = 'label';
+    label.textContent = clean.textContent.trim();
+    link.append(label);
+    link.href = '#' + encodeURIComponent(heading.id || heading.closest('section[id]').id);
+    link.title = label.textContent;
+    link.addEventListener('click', event => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      history.pushState(null, '', link.hash);
+      heading.tabIndex = -1;
+      heading.focus({preventScroll: true});
+      heading.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start'});
+    });
+    item.append(link); list.append(item); return link;
+  });
+  nav.append(list);
+  document.body.append(nav);
+  document.body.classList.add('has-chapter-nav');
+  let pending = false;
+  const update = () => {
+    pending = false;
+    let active = 0;
+    headings.forEach((h, i) => { if (h.getBoundingClientRect().top <= 150) active = i; });
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3) active = headings.length - 1;
+    links.forEach((link, i) => {
+      if (i === active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  const schedule = () => { if (!pending) { pending = true; requestAnimationFrame(update); } };
+  window.addEventListener('scroll', schedule, {passive: true});
+  window.addEventListener('resize', schedule);
+  window.addEventListener('load', schedule);
+  update();
+})();
+</script>

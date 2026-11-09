@@ -1,0 +1,15 @@
+<script>
+(() => {
+  const palette = new URLSearchParams(location.search).get('palette');
+  if (['paper', 'coast', 'clay', 'plum'].includes(palette)) {
+    document.documentElement.dataset.palette = palette;
+    document.querySelectorAll('a[href]').forEach(a => {
+      const url = new URL(a.href, location.href);
+      if (url.origin === location.origin && (url.pathname.endsWith('.html') || url.pathname.endsWith('/'))) {
+        url.searchParams.set('palette', palette);
+        a.href = url.href;
+      }
+    });
+  }
+})();
+</script>

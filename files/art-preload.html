@@ -1,0 +1,4 @@
+<!-- Start the background painting download right away, before the CSS is parsed.
+     Only on pages with body-classes: home-artwork. One image per screen size. -->
+<link rel="preload" as="image" type="image/webp" href="/files/etretat-1800.webp" media="(min-width: 1200px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="/files/etretat-1400.webp" media="(max-width: 1199px)" fetchpriority="high">

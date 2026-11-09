@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <!-- Paper grain. The noise becomes warm dark specks: colour is fixed,
+       alpha = 4·noise − 2, so only the darker half of the noise shows,
+       with hard edges. Strength is set in CSS (grain-opacity variable). -->
+  <filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" stitchTiles="stitch"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0.24
+                                         0 0 0 0 0.20
+                                         0 0 0 0 0.15
+                                         4 0 0 0 -2"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grain)"/>
+</svg>

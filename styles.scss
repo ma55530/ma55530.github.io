@@ -360,7 +360,6 @@ body::after {
 .nav-footer, .nav-footer-center { min-height: 0; }
 .nav-footer .nav-footer-center { margin: 0 !important; }   // Quarto adds 42px on phones
 .nav-footer-center p { margin: 0; }
-.nav-footer .rss-subscribe { font-variant: small-caps; text-transform: lowercase; letter-spacing: .04em; font-size: .9rem; color: $link-color; }
 
 // Listing tags: no box padding, so the tag text lines up with the post title.
 .quarto-listing .listing-categories .listing-category { padding: 0 !important; margin: 0 .8rem 0 0; }

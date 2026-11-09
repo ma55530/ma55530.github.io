@@ -12,7 +12,8 @@ listing:
   sort: "date desc"
   type: default
   max-items: 3
-  fields: [date, title, description]
+  fields: [image, date, read-time, title, description]
+  image-align: right
   date-format: "MMM D, YYYY"
 ---
 

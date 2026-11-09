@@ -453,22 +453,26 @@ details.model-reasoning p:last-child { margin-bottom: .2rem; }
 @media (max-width: 600px) { .banana-row .figure-caption, .banana-row figcaption { font-size: .68rem; } }
 @media (max-width: 600px) { .compare-table td, .compare-table th { padding: .3rem .3rem !important; } .compare-table table { font-size: .8rem; } }
 
-// /blog listing: text on the left; thumbnail on the right with the date under it.
-#listing-listing .quarto-post { grid-template-columns: 1fr 11rem; grid-template-rows: auto 1fr; column-gap: 1.6rem; row-gap: 0 !important; align-items: start; }
-#listing-listing .quarto-post .body { grid-column: 1; grid-row: 1 / span 2; }
-#listing-listing .quarto-post .thumbnail { grid-column: 2; grid-row: 1; width: 100%; height: auto; padding: 0; margin: 0; }
-#listing-listing .quarto-post .thumbnail a { display: block; line-height: 0; }
-#listing-listing .quarto-post .metadata { grid-column: 2; grid-row: 2; padding-top: .4rem; text-align: right; }
-#listing-listing .quarto-post .thumbnail-image {
+// /blog and home listings: text on the left; thumbnail on the right with the date under it.
+:is(#listing-listing, #listing-recent-posts) .quarto-post { grid-template-columns: 1fr 11rem; grid-template-rows: auto 1fr; column-gap: 1.6rem; row-gap: 0 !important; align-items: start; }
+:is(#listing-listing, #listing-recent-posts) .quarto-post .body { grid-column: 1; grid-row: 1 / span 2; }
+:is(#listing-listing, #listing-recent-posts) .quarto-post .thumbnail { grid-column: 2; grid-row: 1; width: 100%; height: auto; padding: 0; margin: 0; }
+:is(#listing-listing, #listing-recent-posts) .quarto-post .thumbnail a { display: block; line-height: 0; }
+:is(#listing-listing, #listing-recent-posts) .quarto-post .metadata { grid-column: 2; grid-row: 2; padding-top: .4rem; text-align: right; }
+:is(#listing-listing, #listing-recent-posts) .quarto-post .thumbnail-image {
   width: 100%; height: auto !important; aspect-ratio: 1; object-fit: cover;
   image-rendering: pixelated; border-radius: 4px; box-shadow: 0 4px 16px rgba(70, 58, 37, .1);
 }
 @media (max-width: 600px) {
-  #listing-listing .quarto-post { grid-template-columns: 1fr 6.5rem; column-gap: 1rem; }
-  #listing-listing .quarto-post .body { grid-column: 1; grid-row: 1 / span 2; }
-  #listing-listing .quarto-post .thumbnail { grid-column: 2; grid-row: 1; }
-  #listing-listing .quarto-post .metadata { grid-column: 2; grid-row: 2; font-size: .8rem; }
+  :is(#listing-listing, #listing-recent-posts) .quarto-post { grid-template-columns: 1fr 6.5rem; column-gap: 1rem; }
+  :is(#listing-listing, #listing-recent-posts) .quarto-post .body { grid-column: 1; grid-row: 1 / span 2; }
+  :is(#listing-listing, #listing-recent-posts) .quarto-post .thumbnail { grid-column: 2; grid-row: 1; }
+  :is(#listing-listing, #listing-recent-posts) .quarto-post .metadata { grid-column: 2; grid-row: 2; font-size: .8rem; }
 }
+
+// Home page: a smaller thumbnail than on /blog.
+#listing-recent-posts .quarto-post { grid-template-columns: 1fr 8rem; }
+@media (max-width: 600px) { #listing-recent-posts .quarto-post { grid-template-columns: 1fr 5.5rem; } }
 
 // RGB matrix figure (posts/2026-11-08-1st/figures/rgb-matrix.html): photo, marked square, enlarged cells with their numbers.
 .rgb-figure { display: flex; align-items: center; justify-content: center; gap: 1.1rem; margin: .4rem 0 .2rem; }

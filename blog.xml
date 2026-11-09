@@ -10,7 +10,7 @@
 <atom:link href="https://ma55530.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Matija Akrap — ML and interpretability research, notes and writing.</description>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Sun, 08 Nov 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 09 Nov 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Same world, different senses</title>
   <link>https://ma55530.github.io/posts/same-world-different-senses/</link>
@@ -1166,7 +1166,7 @@ Uexküll, Jakob von. 2010. <em>A Foray into the Worlds of Animals and Humans: Wi
 </div></section></div> ]]></description>
   <category>interpretability</category>
   <guid>https://ma55530.github.io/posts/same-world-different-senses/</guid>
-  <pubDate>Sun, 08 Nov 2026 23:00:00 GMT</pubDate>
+  <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
   <media:content url="https://ma55530.github.io/posts/same-world-different-senses/figures/waltz-3-astra.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
